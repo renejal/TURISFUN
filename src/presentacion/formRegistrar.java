@@ -21,6 +21,8 @@ public class formRegistrar extends javax.swing.JFrame {
     public clsControlador control = clsControlador.getInstacia();
     public formRegistrar() {
         initComponents();
+        this.Visibilidad(false);
+        
     }
     
 
@@ -45,7 +47,7 @@ public class formRegistrar extends javax.swing.JFrame {
         btnRegistrar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         cbox_privilegios = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
+        lbPrivilegios = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         cBox_genero = new javax.swing.JComboBox<>();
 
@@ -66,6 +68,11 @@ public class formRegistrar extends javax.swing.JFrame {
         jLabel7.setText("password: ");
 
         CBox_TipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Socio", "Administrador"}));
+        CBox_TipoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CBox_TipoUsuarioActionPerformed(evt);
+            }
+        });
 
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +90,7 @@ public class formRegistrar extends javax.swing.JFrame {
 
         cbox_privilegios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Alto", "Medio", "Basico", "Bajo" }));
 
-        jLabel3.setText("privilegios");
+        lbPrivilegios.setText("privilegios");
 
         jLabel8.setText("Genero");
 
@@ -102,7 +109,7 @@ public class formRegistrar extends javax.swing.JFrame {
                         .addGap(112, 112, 112)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(lbPrivilegios)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cbox_privilegios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
@@ -113,11 +120,6 @@ public class formRegistrar extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(text_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(btnRegistrar)
-                                .addGap(43, 43, 43)
-                                .addComponent(btnCancelar))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel5)
@@ -135,13 +137,17 @@ public class formRegistrar extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cBox_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnRegistrar)
+                                .addGap(47, 47, 47)
+                                .addComponent(btnCancelar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(text_identificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -169,30 +175,34 @@ public class formRegistrar extends javax.swing.JFrame {
                         .addComponent(text_using, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(cBox_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbox_privilegios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrar)
-                    .addComponent(btnCancelar))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(cBox_genero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cbox_privilegios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbPrivilegios))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnRegistrar)
+                            .addComponent(btnCancelar))
+                        .addGap(44, 44, 44))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(text_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void OcultarInfo(){
-        if(this.CBox_TipoUsuario.getSelectedItem().toString().equals("Usuario")){
-            this.cbox_privilegios.setVisible(false);
-        }
+    private void Visibilidad(boolean parBoleano){
+       
+            this.cbox_privilegios.setVisible(parBoleano);
+            this.lbPrivilegios.setVisible(parBoleano);
+        
     }
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
        this.setVisible(false);
@@ -202,7 +212,6 @@ public class formRegistrar extends javax.swing.JFrame {
     }
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
       if(this.CBox_TipoUsuario.getSelectedItem().toString().equals("Usuario")){
-          this.OcultarInfo();
           control.crearUsuario(this.text_nombre.getText(),Long.parseLong(this.text_identificacion.getText()),Integer.parseInt(this.text_telefono.getText()),this.text_using.getText(),this.text_password.getText(),this.cBox_genero.getSelectedItem().toString().charAt(0));
           this.mostrarMensaje("se ha regsitrado Usuario!!", "registro");
       }else if(this.CBox_TipoUsuario.getSelectedItem().toString().equals("Administrador")){
@@ -218,6 +227,17 @@ public class formRegistrar extends javax.swing.JFrame {
       form1.setVisible(true);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+    private void CBox_TipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBox_TipoUsuarioActionPerformed
+        if(this.CBox_TipoUsuario.getSelectedItem().toString().equals("Usuario")){
+         this.Visibilidad(false);
+      }else if(this.CBox_TipoUsuario.getSelectedItem().toString().equals("Administrador")){
+          this.Visibilidad(true);
+      }
+      else{
+          this.Visibilidad(false);
+      }
+    }//GEN-LAST:event_CBox_TipoUsuarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,13 +250,13 @@ public class formRegistrar extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbox_privilegios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbPrivilegios;
     private javax.swing.JTextField text_identificacion;
     private javax.swing.JTextField text_nombre;
     private javax.swing.JTextField text_password;

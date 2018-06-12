@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/interfazproyectosoftware/main.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/presentacion/index.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/presentacion/interfazAdministrador.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/presentacion/InterfazUsuario.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/logica/clsControlador.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/presentacion/clsInterfaz.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/presentacion/clsFabrica.java</file>
-            <file>file:/C:/Users/rene/Documents/NetBeansProjects/interfazproyectoSoftware/src/presentacion/interfazSocio.java</file>
+            <file>file:/E:/gihub/Turisfun/src/presentacion/formRegistrar.java</file>
+            <file>file:/E:/gihub/Turisfun/src/presentacion/index.java</file>
+            <file>file:/E:/gihub/Turisfun/src/presentacion/InterfazUsuario.java</file>
+            <file>file:/E:/gihub/Turisfun/src/logica/clsControlador.java</file>
+            <file>file:/E:/gihub/Turisfun/src/presentacion/interfazAdministrador.java</file>
+            <file>file:/E:/gihub/Turisfun/src/interfazproyectosoftware/main.java</file>
+            <file>file:/E:/gihub/Turisfun/src/logica/clsPrincipal.java</file>
         </group>
     </open-files>
 </project-private>

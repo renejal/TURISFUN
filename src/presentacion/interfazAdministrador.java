@@ -6,6 +6,7 @@
 package presentacion;
 
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import logica.clsControlador;
 import logica.clsLugar;
@@ -20,8 +21,11 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
      * Creates new form interfazAdministrador
      */
     public clsControlador control = clsControlador.getInstacia();
+    public DefaultListModel atrmodel;
     public interfazAdministrador() {
         initComponents();
+        atrmodel = new DefaultListModel();
+        this.txt_listEstablecimientos.setModel(atrmodel);
     }
 
     /**
@@ -48,8 +52,10 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
         btn_agregar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        texArea_establecimiento = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txt_listEstablecimientos = new javax.swing.JList<>();
+        btnEliminarEstablecimiento = new javax.swing.JToggleButton();
+        btnCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,7 +111,7 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
                         .addComponent(text_direccion)
                         .addComponent(text_parTipo))
                     .addComponent(text_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,33 +136,54 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_agregar)
                     .addComponent(jButton1))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crear establecimiento", jPanel1);
 
-        texArea_establecimiento.setColumns(20);
-        texArea_establecimiento.setRows(5);
-        jScrollPane1.setViewportView(texArea_establecimiento);
+        txt_listEstablecimientos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = {};
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(txt_listEstablecimientos);
+
+        btnEliminarEstablecimiento.setText("eliminar");
+        btnEliminarEstablecimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEstablecimientoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEliminarEstablecimiento)
+                .addGap(27, 27, 27))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarEstablecimiento))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Establecimientos", jPanel2);
+
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,36 +193,49 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
-                    .addComponent(jLabel1))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addGap(538, 538, 538)
+                        .addComponent(jLabel2)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCerrar)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(btnCerrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addContainerGap(38, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-     private void mostrarMensaje(String parMensaje, String parTitulo){
+    private void limpiarFormulario(){
+        this.text_descripcion.setText("");
+        this.text_direccion.setText("");
+        this.text_nombre.setText("");
+        this.text_parTipo.setText("");
+    } 
+    private void mostrarMensaje(String parMensaje, String parTitulo){
         JOptionPane.showMessageDialog(null, parMensaje,parTitulo, JOptionPane.WARNING_MESSAGE);
     }
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
             control.agregarLugar(this.text_nombre.getText(),this.text_direccion.getText(),this.text_descripcion.getText(),"",this.text_parTipo.getText());
             this.mostrarMensaje("se agreado con exito establecimieonto", "crar");
+            this.limpiarFormulario();
+            
     }//GEN-LAST:event_btn_agregarActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -203,15 +243,29 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        listarMensajes();
+        AgregarEstablecimiento();
     }//GEN-LAST:event_jTabbedPane1MouseClicked
-    private void listarMensajes(){
-         this.texArea_establecimiento.setText("");
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnEliminarEstablecimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEstablecimientoActionPerformed
+        int res = JOptionPane.showConfirmDialog(null,"Esta seguro de eliminar el Establecimiento");
+        if(res == 0){
+        int item=this.txt_listEstablecimientos.getSelectedIndex();
+       atrmodel.remove(item);  
+        
+        }
+        
+    }//GEN-LAST:event_btnEliminarEstablecimientoActionPerformed
+    private void AgregarEstablecimiento(){
+         atrmodel.removeAllElements();
           ArrayList varColEStablecimientos=control.obtenerTodosLosLugares();
            for (int i = 0; i < varColEStablecimientos.size(); i++) {
               String varResultado =((clsLugar)varColEStablecimientos.get(i)).getAtrNombre();
-              this.texArea_establecimiento.append(varResultado);
-            this.texArea_establecimiento.append(System.getProperty("line.separator"));
+              atrmodel.addElement(varResultado);
         }
            
             
@@ -225,6 +279,8 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrar;
+    private javax.swing.JToggleButton btnEliminarEstablecimiento;
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -235,13 +291,13 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea texArea_establecimiento;
     private javax.swing.JTextField text_descripcion;
     private javax.swing.JTextField text_direccion;
     private javax.swing.JTextField text_nombre;
     private javax.swing.JTextField text_parTipo;
+    private javax.swing.JList<String> txt_listEstablecimientos;
     // End of variables declaration//GEN-END:variables
 
     @Override
