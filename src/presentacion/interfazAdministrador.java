@@ -22,10 +22,14 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
      */
     public clsControlador control = clsControlador.getInstacia();
     public DefaultListModel atrmodel;
+    private DefaultListModel atrmodelServicio;
     public interfazAdministrador() {
         initComponents();
         atrmodel = new DefaultListModel();
+        atrmodelServicio = new DefaultListModel();
         this.txt_listEstablecimientos.setModel(atrmodel);
+        this.lis_serviciosEstablecimientos.setModel(atrmodelServicio);
+       
     }
 
     /**
@@ -40,24 +44,33 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        text_nombre = new javax.swing.JTextField();
-        text_direccion = new javax.swing.JTextField();
-        text_descripcion = new javax.swing.JTextField();
-        text_parTipo = new javax.swing.JTextField();
-        btn_agregar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txt_listEstablecimientos = new javax.swing.JList<>();
         btnEliminarEstablecimiento = new javax.swing.JToggleButton();
-        btnCerrar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        cbox_lugar = new javax.swing.JComboBox<>();
+        jPanel3 = new javax.swing.JPanel();
+        btn_Crear = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        text_nombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        text_direccion = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        text_descripcion = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        text_parTipo = new javax.swing.JTextField();
+        lb_servicios = new javax.swing.JLabel();
+        txt_servicio = new javax.swing.JTextField();
+        btnAgregar = new javax.swing.JButton();
+        lb_usuario = new javax.swing.JLabel();
+        txt_usuario = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lis_serviciosEstablecimientos = new javax.swing.JList<>();
+        btnEliminarServicio = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Administrador: ");
 
@@ -66,80 +79,6 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
                 jTabbedPane1MouseClicked(evt);
             }
         });
-
-        jLabel3.setText("Nombre:");
-
-        jLabel4.setText("Direccion:");
-
-        jLabel5.setText("Descripcion:");
-
-        jLabel7.setText("parTipo:");
-
-        btn_agregar.setText("Agregar");
-        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("Cancelar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
-                .addGap(37, 37, 37)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btn_agregar)
-                        .addGap(73, 73, 73)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(text_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                        .addComponent(text_direccion)
-                        .addComponent(text_parTipo))
-                    .addComponent(text_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(227, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(text_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(text_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(text_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(text_parTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_agregar)
-                    .addComponent(jButton1))
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Crear establecimiento", jPanel1);
 
         txt_listEstablecimientos.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = {};
@@ -161,7 +100,7 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEliminarEstablecimiento)
                 .addGap(27, 27, 27))
@@ -173,17 +112,192 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarEstablecimiento))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Establecimientos", jPanel2);
 
-        btnCerrar.setText("Cerrar");
-        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrarActionPerformed(evt);
+        cbox_lugar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Establecimiento","Sitio turistico"}));
+        cbox_lugar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cbox_lugarMouseClicked(evt);
             }
         });
+        cbox_lugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbox_lugarActionPerformed(evt);
+            }
+        });
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btn_Crear.setText("Crear");
+        btn_Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CrearActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Nombre:");
+
+        jLabel4.setText("Direccion:");
+
+        jLabel5.setText("Descripcion:");
+
+        jLabel7.setText("parTipo:");
+
+        lb_servicios.setText("Servicio");
+
+        btnAgregar.setText("add");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+
+        lb_usuario.setText("Usuario");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4))
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(text_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(text_nombre, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(text_direccion, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(text_parTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addComponent(lb_servicios)
+                                .addGap(18, 18, 18)
+                                .addComponent(txt_servicio)
+                                .addGap(28, 28, 28)
+                                .addComponent(btnAgregar))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(lb_usuario)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(btn_Crear)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(jButton1)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(text_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(text_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(text_descripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(text_parTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_usuario)
+                    .addComponent(txt_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_servicios)
+                    .addComponent(txt_servicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgregar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_Crear)
+                    .addComponent(jButton1))
+                .addGap(44, 44, 44))
+        );
+
+        lis_serviciosEstablecimientos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lis_serviciosEstablecimientos.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lis_serviciosEstablecimientos);
+
+        btnEliminarServicio.setText("Eliminar");
+        btnEliminarServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarServicioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(cbox_lugar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(276, 276, 276))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnEliminarServicio)
+                        .addGap(41, 41, 41))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(cbox_lugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEliminarServicio)
+                        .addGap(35, 35, 35))))
+        );
+
+        jTabbedPane1.addTab("Crear establecimiento", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -193,31 +307,27 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(538, 538, 538)
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnCerrar)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 94, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2))
+                    .addComponent(jLabel1))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(15, 15, 15)
-                .addComponent(btnCerrar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 381, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(440, 440, 440)
+                        .addComponent(jLabel2)
+                        .addContainerGap(63, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -228,15 +338,22 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
         this.text_nombre.setText("");
         this.text_parTipo.setText("");
     } 
+    private void ocultar(boolean valor){
+        this.lb_servicios.setVisible(valor);
+        this.txt_servicio.setVisible(valor);
+        this.btnAgregar.setVisible(valor);
+        this.txt_usuario.setVisible(valor);
+        this.lb_usuario.setVisible(valor);
+    }
     private void mostrarMensaje(String parMensaje, String parTitulo){
         JOptionPane.showMessageDialog(null, parMensaje,parTitulo, JOptionPane.WARNING_MESSAGE);
     }
-    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+    private void btn_CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearActionPerformed
             control.agregarLugar(this.text_nombre.getText(),this.text_direccion.getText(),this.text_descripcion.getText(),"",this.text_parTipo.getText());
             this.mostrarMensaje("se agreado con exito establecimieonto", "crar");
             this.limpiarFormulario();
             
-    }//GEN-LAST:event_btn_agregarActionPerformed
+    }//GEN-LAST:event_btn_CrearActionPerformed
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
@@ -246,22 +363,60 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
         AgregarEstablecimiento();
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
-    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_btnCerrarActionPerformed
-
     private void btnEliminarEstablecimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEstablecimientoActionPerformed
         int res = JOptionPane.showConfirmDialog(null,"Esta seguro de eliminar el Establecimiento");
         if(res == 0){
-        int item=this.txt_listEstablecimientos.getSelectedIndex();
-       atrmodel.remove(item);  
+         int item=this.txt_listEstablecimientos.getSelectedIndex();
+         String parTemp =atrmodel.get(item).toString();
+         atrmodel.remove(item); 
+         
+        control.crudEliminarEstablecimiento(parTemp);//todo : no eliminar completamente
+        
         
         }
         
     }//GEN-LAST:event_btnEliminarEstablecimientoActionPerformed
+
+    private void cbox_lugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbox_lugarMouseClicked
+       if(this.cbox_lugar.getSelectedItem().toString().equals("Sitio turistico")){
+           this.ocultar(false);
+           
+       }
+       else{
+           this.ocultar(true);
+       }
+    }//GEN-LAST:event_cbox_lugarMouseClicked
+
+    private void cbox_lugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbox_lugarActionPerformed
+        if(this.cbox_lugar.getSelectedItem().toString().equals("Sitio turistico")){
+           this.ocultar(false);
+       }
+       else{
+           this.ocultar(true);
+       }
+    }//GEN-LAST:event_cbox_lugarActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+          // atrmodelServicio.removeAllElements();
+           atrmodelServicio.addElement(this.txt_servicio.getText());
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnEliminarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarServicioActionPerformed
+        
+         int item=this.lis_serviciosEstablecimientos.getSelectedIndex();
+         String parTemp =atrmodelServicio.get(item).toString();
+         atrmodelServicio.remove(item); 
+         
+       // control.crudEliminarEstablecimiento(parTemp);//todo : no eliminar completamente
+       //tod:eliminar Serviciso 
+       
+               
+        
+        
+        
+    }//GEN-LAST:event_btnEliminarServicioActionPerformed
     private void AgregarEstablecimiento(){
-         atrmodel.removeAllElements();
+          atrmodel.removeAllElements();
           ArrayList varColEStablecimientos=control.obtenerTodosLosLugares();
            for (int i = 0; i < varColEStablecimientos.size(); i++) {
               String varResultado =((clsLugar)varColEStablecimientos.get(i)).getAtrNombre();
@@ -271,7 +426,7 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
             
         
     }
-        
+   
         
     /**
      * @param args the command line arguments
@@ -279,9 +434,11 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JToggleButton btnEliminarEstablecimiento;
-    private javax.swing.JButton btn_agregar;
+    private javax.swing.JButton btnEliminarServicio;
+    private javax.swing.JButton btn_Crear;
+    private javax.swing.JComboBox<String> cbox_lugar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -291,13 +448,20 @@ public class interfazAdministrador extends javax.swing.JFrame implements clsInte
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lb_servicios;
+    private javax.swing.JLabel lb_usuario;
+    private javax.swing.JList<String> lis_serviciosEstablecimientos;
     private javax.swing.JTextField text_descripcion;
     private javax.swing.JTextField text_direccion;
     private javax.swing.JTextField text_nombre;
     private javax.swing.JTextField text_parTipo;
     private javax.swing.JList<String> txt_listEstablecimientos;
+    private javax.swing.JTextField txt_servicio;
+    private javax.swing.JTextField txt_usuario;
     // End of variables declaration//GEN-END:variables
 
     @Override

@@ -1,18 +1,27 @@
 package logica;
 
+import java.util.ArrayList;
+
 public class clsLugar {
     private String atrNombre;
     private String atrDireccion;
     private String atrDescripcion;
     private int atrCalificacion;
+    protected ArrayList<String> atrColServicios;
+    
 
     public clsLugar(String atrNombre, String atrDireccion, String atrDescripcion, int atrCalificacion) {
         this.atrNombre = atrNombre;
         this.atrDireccion = atrDireccion;
         this.atrDescripcion = atrDescripcion;
         this.atrCalificacion = atrCalificacion;
+        this.atrColServicios = new ArrayList();
     }
 
+    public ArrayList<String> getAtrColServicios() {
+        return atrColServicios;
+    }
+    
     public String getAtrNombre() {
         return atrNombre;
     }
@@ -43,6 +52,10 @@ public class clsLugar {
 
     public void setAtrCalificacion(int atrCalificacion) {
         this.atrCalificacion = atrCalificacion;
+    }
+
+    public void setAtrColServicios(ArrayList<String> atrColServicios) {
+        this.atrColServicios = atrColServicios;
     }
     
     

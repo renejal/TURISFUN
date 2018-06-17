@@ -9,6 +9,7 @@ public class clsRestaurante extends clsEstablecimiento{
     public clsRestaurante(String atrNombre, String atrDireccion, String atrDescripcion, int atrCalificacion, int atrTelefono, clsSocio atrSocio, ArrayList parColMenu) {
         super(atrNombre, atrDireccion, atrDescripcion, atrCalificacion, atrTelefono, atrSocio);
         this.atrColMenu = parColMenu;
+       
     }
         
 }

@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class clsEstablecimiento extends clsLugar{
     private int atrTelefono;
-    private clsSocio atrSocio;
+    private clsPersona atrSocio;
     ArrayList atrColReservas = new ArrayList();
 
-    public clsEstablecimiento(String atrNombre, String atrDireccion, String atrDescripcion, int atrCalificacion, int atrTelefono, clsSocio atrSocio) {
+    public clsEstablecimiento(String atrNombre, String atrDireccion, String atrDescripcion, int atrCalificacion, int atrTelefono, clsPersona atrSocio) {
         super(atrNombre, atrDireccion, atrDescripcion, atrCalificacion);
         this.atrTelefono = atrTelefono;
         this.atrSocio = atrSocio;
@@ -17,7 +17,7 @@ public class clsEstablecimiento extends clsLugar{
         return atrTelefono;
     }
 
-    public clsSocio getAtrSocio() {
+    public clsPersona getAtrSocio() {
         return atrSocio;
     }
 

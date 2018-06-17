@@ -3,30 +3,31 @@ package logica;
 import java.util.Date;
 
 public class clsReservacion {
-    long atrIdentificacionUsuario;
+    String atrUsuario;
     String atrNombreEstablecimiento;
-    Date atrFechaReserva;
+    String atrFechaReserva;
     String atrDescripcion;
     boolean atrEstado;
     int numero;
 
-    public clsReservacion(long atrIdentificacionUsuario, String atrNombreEstablecimiento, Date atrFechaReserva, String atrDescripcion, boolean atrEstado) {
-        this.atrIdentificacionUsuario = atrIdentificacionUsuario;
+    public clsReservacion(String atrIdentificacionUsuario, String atrNombreEstablecimiento, String atrFechaReserva, String atrDescripcion, boolean atrEstado) {
+        
+        this.atrUsuario = atrIdentificacionUsuario;
         this.atrNombreEstablecimiento = atrNombreEstablecimiento;
         this.atrFechaReserva = atrFechaReserva;
         this.atrDescripcion = atrDescripcion;
         this.atrEstado = atrEstado;
     }
 
-    public long getAtrIdentificacionUsuario() {
-        return atrIdentificacionUsuario;
+    public String getAtrUsuario() {
+        return atrUsuario;
     }
 
     public String getAtrNombreEstablecimiento() {
         return atrNombreEstablecimiento;
     }
 
-    public Date getAtrFechaReserva() {
+    public String getAtrFechaReserva() {
         return atrFechaReserva;
     }
 
@@ -38,15 +39,15 @@ public class clsReservacion {
         return atrEstado;
     }
 
-    public void setAtrIdentificacionUsuario(long atrIdentificacionUsuario) {
-        this.atrIdentificacionUsuario = atrIdentificacionUsuario;
+    public void setAtrIdentificacionUsuario(String atrUsuario) {
+        this.atrUsuario = atrUsuario;
     }
 
     public void setAtrNombreEstablecimiento(String atrNombreEstablecimiento) {
         this.atrNombreEstablecimiento = atrNombreEstablecimiento;
     }
 
-    public void setAtrFechaReserva(Date atrFechaReserva) {
+    public void setAtrFechaReserva(String atrFechaReserva) {
         this.atrFechaReserva = atrFechaReserva;
     }
 

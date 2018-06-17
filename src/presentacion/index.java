@@ -5,6 +5,7 @@
  */
 package presentacion;
 
+import javax.swing.JOptionPane;
 import logica.clsControlador;
 import logica.clsPersona;
 
@@ -40,7 +41,7 @@ public class index extends javax.swing.JFrame {
 
         jLabel2.setText("jLabel2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnIniciarSeccion.setText("iniciar sesion");
         btnIniciarSeccion.addActionListener(new java.awt.event.ActionListener() {
@@ -104,17 +105,24 @@ public class index extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+     private void mostrarMensaje(String parMensaje, String parTitulo){
+        JOptionPane.showMessageDialog(null, parMensaje,parTitulo, JOptionPane.WARNING_MESSAGE);
+    }
     private void btnIniciarSeccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSeccionActionPerformed
        
        //todo obtener obj interfaz
         
         clsControlador control = clsControlador.getInstacia();
         clsPersona obj = control.inicioSesion(this.text_using.getText(),this.text_password.getText());
+        if(obj==null){
+            this.mostrarMensaje("el nombre de usuario no existe","Advertencia");
+        }
+        else
+        {
         clsFabrica fabrica = new clsFabrica();
         clsInterfaz formInterfaz =fabrica.fabricarInterfaz(obj.getClass().getSimpleName());
         formInterfaz.mostrarInterfaz(this.text_using.getText());
-
+        }
 
        
     }//GEN-LAST:event_btnIniciarSeccionActionPerformed
